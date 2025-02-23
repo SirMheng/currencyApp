@@ -53,7 +53,12 @@ const App = () => {
             </label>
             <input
               type="number"
-              className="flex items-center px-[10px] min-h-[45px] rounded-md bg-white/10 border border-white/50"
+              className={`flex items-center px-[10px] min-h-[45px] rounded-md bg-white/10 border transition 
+  ${
+    amount && !isNaN(amount)
+      ? "border-white/50"
+      : "border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
+  }`}
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               required
